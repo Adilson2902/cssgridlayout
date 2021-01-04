@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Switch,Router,Route } from 'react-router-dom';
+import './grid.css'
+import './App.css'
+
+import history from './history'
+import Grid from './pages/grid';
+import Puro from './pages/puro';
+import Flex from './pages/flex';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history} >
+
+        <Switch>
+        <Route exact path="/"  render={() => <Puro></Puro>}></Route>
+        <Route exact path="/home"  render={() => <Puro></Puro>}></Route>
+        <Route exact path="/purohome"  render={() => <Puro></Puro>}></Route>
+        <Route exact path="/gridhome"  render={() => <Grid></Grid>}></Route>
+        <Route exact path="/flexhome"  render={() => <Flex></Flex>}></Route>
+     
+        </Switch>
+
+    </Router>
   );
 }
 
